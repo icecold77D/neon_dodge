@@ -6,6 +6,7 @@
 <meta name="theme-color" content="#050816">
 <title>NEON DODGE — 星際閃避</title>
 <style>
+
 :root{--cyan:#39f6ff;--pink:#ff3de8;--purple:#8b5cff;--bg:#050816;--panel:rgba(8,16,40,.82);--muted:#9bb1d5}
 *{box-sizing:border-box}
 html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);color:#eafaff;font-family:Inter,"Noto Sans TC",system-ui,-apple-system,sans-serif;touch-action:none}
@@ -51,6 +52,83 @@ button{font:inherit;cursor:pointer}
 .iconBtn{pointer-events:auto;border:1px solid #39f6ff4d;background:#071128cc;color:var(--cyan);width:34px;height:34px;font-size:15px}
 @media(max-width:600px){.stat{padding:5px 7px;min-width:45px}.stat label{font-size:7px}.brand{letter-spacing:.1em}.brand small{letter-spacing:.12em}.status{font-size:8px}.power{padding:5px 6px;font-size:8px}.controls{grid-template-columns:1fr 1fr;gap:6px}.control{padding:8px;font-size:10px}.touchHint{display:block}.panel{padding:22px 18px}}
 @media(max-height:500px){.panel{padding:14px 20px}.controls{margin:10px 0}.subtitle{margin-bottom:8px}h1{font-size:30px}.note{margin-top:7px}}
+
+/* 手機與窄螢幕 */
+@media (max-width: 700px) {
+  #gameShell {
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    aspect-ratio: auto;
+  }
+
+  .hud {
+    padding: 10px;
+  }
+
+  .stats {
+    gap: 5px;
+  }
+
+  .stat {
+    min-width: 0;
+    padding: 5px;
+  }
+
+  .stat strong {
+    font-size: 14px;
+  }
+
+  .powerups {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .power {
+    padding: 5px 6px;
+    font-size: 8px;
+  }
+
+  .overlay {
+    padding: 10px;
+  }
+
+  .panel {
+    width: 100%;
+    max-width: 460px;
+    max-height: 100%;
+    overflow-y: auto;
+  }
+}
+
+/* 手機直向：調整上方狀態列 */
+@media (max-width: 700px) and (orientation: portrait) {
+  body {
+    display: block;
+  }
+
+  .hudTop {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) 34px;
+    width: 100%;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .controls {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+}
 </style>
 </head>
 <body>
